@@ -71,7 +71,6 @@ button{
   color:#b01257;
 }
 
-/* GAME */
 .envelope-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -95,7 +94,6 @@ button{
 
 .hidden{display:none;}
 
-/* YES NO SLIDE */
 .slide{
   position:fixed;
   inset:0;
@@ -110,7 +108,6 @@ button{
 
 .slide.show{display:flex;}
 
-/* NEW YEAR BIG SLIDE */
 .big-slide{
   position:fixed;
   inset:0;
@@ -121,12 +118,13 @@ button{
   flex-direction:column;
   z-index:30;
   font-family:'Playfair Display',serif;
+  padding:20px;
 }
 
 .big-slide.show{display:flex;}
 
 .big-slide h1{
-  font-size:38px;
+  font-size:34px;
   color:#c2185b;
 }
 </style>
@@ -136,31 +134,27 @@ button{
 
 <div class="container">
 
-<!-- PAGE 1 -->
 <div class="page active" id="page1">
   <h1>OPEN 💌</h1>
   <button onclick="nextPage(2)">Open ❤️</button>
 </div>
 
-<!-- PAGE 2 QUESTION -->
 <div class="page" id="page2">
   <h1>Will you be my valentine.... 💝</h1>
   <button onclick="yesLove()">YES 💖</button>
   <button onclick="noLove()">NO 🙈</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page" id="page3">
   <div class="photo-frame">
     <img src="https://i.ibb.co/pr67LynR/IMG-20251208-115254-857.jpg">
   </div>
   <h1>Happy valentine's day 🙂💝</h1>
   <img src="https://i.ibb.co/Z4LPsRK/file-00000000bf247209808fd483a8113ba9.png" width="120">
-  <p>I love you my cutie pie 😘.........</p>
+  <p>I love you my cutie pie 😘........</p>
   <button onclick="nextPage(4)">Next ❤️</button>
 </div>
 
-<!-- PAGE 4 -->
 <div class="page" id="page4">
   <p>
 Trang,<br>
@@ -175,7 +169,6 @@ Anh yêu em, Trang. 💖
   <button onclick="nextPage(5)">Next ❤️</button>
 </div>
 
-<!-- PAGE 5 -->
 <div class="page" id="page5">
   <p>
 Nếu yêu là chờ đợi,<br>
@@ -189,13 +182,11 @@ chính là em. 💫
   <button onclick="nextPage(6)">Next 💕</button>
 </div>
 
-<!-- PAGE 6 -->
 <div class="page" id="page6">
-  <div class="final-love">I love you forever & Ever...🫀❤️‍🩹</div>
+  <div class="final-love">I love you forever & Ever 🫀❤️‍🩹</div>
   <button onclick="nextPage(7)">Next 🎁</button>
 </div>
 
-<!-- GAME PAGE -->
 <div class="page" id="page7">
   <h1>Choose your luck 🙂</h1>
   <button onclick="startGame()">Play ▶</button>
@@ -213,7 +204,6 @@ chính là em. 💫
   </div>
 </div>
 
-<!-- RESULT -->
 <div class="page" id="page8">
   <h1>Congratulations 🎉</h1>
   <p id="totalMoney"></p>
@@ -221,24 +211,30 @@ chính là em. 💫
 
 </div>
 
-<!-- YES SLIDE -->
 <div class="slide" id="yesSlide">
   <h1>yesss i knew it... 💖</h1>
   <p>Love you soo much 😘...</p>
   <button onclick="closeSlide();nextPage(3);">Continue 💕</button>
 </div>
 
-<!-- NO SLIDE -->
 <div class="slide" id="noSlide">
-  <h1>Think again other wise I kikl you 😼.....</h1>
+  <h1>Think again otherwise I kill you 😼...</h1>
   <img src="https://i.ibb.co/CKVwMxsJ/80f9a2d0f8a5fd2cf8c2fa553ded2efa.jpg" class="love-img">
   <button onclick="closeSlide()">Back 🔙</button>
 </div>
 
-<!-- NEW YEAR BIG SLIDE -->
 <div class="big-slide" id="newYearSlide">
   <h1>Happy New Year.... 🎊</h1>
-  <p>hope you enjoy with your family 😊</p>
+  <p>Hope you enjoy with your family 😊</p>
+</div>
+
+<div class="big-slide" id="tetLoveSlide">
+  <h1>Chúc em một mùa Tết thật hạnh phúc, Trang 🌸</h1>
+  <p>
+  Mong những ngày của em tràn đầy bao lì xì đỏ,<br>
+  tiếng cười ngọt ngào,<br>
+  và những cái ôm ấm áp bên gia đình…
+  </p>
 </div>
 
 <script>
@@ -280,6 +276,11 @@ function pick(el,index){
 
       setTimeout(()=>{
         document.getElementById("newYearSlide").classList.add("show");
+
+        setTimeout(()=>{
+          document.getElementById("tetLoveSlide").classList.add("show");
+        },3000);
+
       },2000);
 
     },800);
