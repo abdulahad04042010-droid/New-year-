@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Valentine ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background:linear-gradient(135deg,#ffe6ec,#ffffff,#ffd6e8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container{max-width:380px;padding:20px;}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  margin-bottom:15px;
+  color:#c2185b;
+}
+
+p{font-size:16px;line-height:1.7;color:#9c2c5b;}
+
+button{
+  margin:25px 5px 0;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:#c2185b;
+  color:white;
+  cursor:pointer;
+}
+
+.page{display:none;}
+.page.active{display:block;}
+
+.love-img{
+  width:100%;
+  max-width:250px;
+  border-radius:20px;
+  margin-top:15px;
+}
+
+.photo-frame{
+  width:220px;
+  margin:0 auto 15px auto;
+  padding:8px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#ff9ec4,#ffffff,#ffb6d5);
+  box-shadow:0 10px 25px rgba(194,24,91,0.25);
+}
+
+.photo-frame img{
+  width:100%;
+  border-radius:18px;
+}
+
+.final-love{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  color:#b01257;
+}
+
+/* GAME */
+.envelope-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.envelope{
+  background:#c40000;
+  color:#ffd700;
+  padding:30px 5px;
+  border-radius:14px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.envelope.opened{
+  background:#fff0f0;
+  color:#c40000;
+}
+
+.hidden{display:none;}
+
+/* YES NO SLIDE */
+.slide{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ffffff,#ffd6e8,#ffe6ec);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:20;
+  padding:20px;
+}
+
+.slide.show{display:flex;}
+
+/* NEW YEAR BIG SLIDE */
+.big-slide{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ffdde9,#ffffff,#ffe6ec);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:30;
+  font-family:'Playfair Display',serif;
+}
+
+.big-slide.show{display:flex;}
+
+.big-slide h1{
+  font-size:38px;
+  color:#c2185b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>OPEN 💌</h1>
+  <button onclick="nextPage(2)">Open ❤️</button>
+</div>
+
+<!-- PAGE 2 QUESTION -->
+<div class="page" id="page2">
+  <h1>Will you be my valentine.... 💝</h1>
+  <button onclick="yesLove()">YES 💖</button>
+  <button onclick="noLove()">NO 🙈</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="photo-frame">
+    <img src="https://i.ibb.co/pr67LynR/IMG-20251208-115254-857.jpg">
+  </div>
+  <h1>Happy valentine's day 🙂💝</h1>
+  <img src="https://i.ibb.co/Z4LPsRK/file-00000000bf247209808fd483a8113ba9.png" width="120">
+  <p>I love you my cutie pie 😘.........</p>
+  <button onclick="nextPage(4)">Next ❤️</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <p>
+Trang,<br>
+Khoảng cách chỉ là một con số,<br>
+vì trái tim anh luôn tìm được đường đến với em.<br><br>
+Mỗi ngày không có em bên cạnh,<br>
+anh chỉ nhớ em nhiều hơn một chút…<br><br>
+Valentine này anh không thể nắm tay em,<br>
+nhưng tình yêu của anh chưa bao giờ rời xa.<br>
+Anh yêu em, Trang. 💖
+  </p>
+  <button onclick="nextPage(5)">Next ❤️</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+  <p>
+Nếu yêu là chờ đợi,<br>
+anh nguyện chờ em cả đời.<br>
+Nếu nhớ là nỗi đau,<br>
+anh vẫn muốn đau vì em.<br><br>
+Giữa muôn ngàn khoảng cách,<br>
+trái tim anh chỉ hướng về một người…<br>
+chính là em. 💫
+  </p>
+  <button onclick="nextPage(6)">Next 💕</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" id="page6">
+  <div class="final-love">I love you forever & Ever...🫀❤️‍🩹</div>
+  <button onclick="nextPage(7)">Next 🎁</button>
+</div>
+
+<!-- GAME PAGE -->
+<div class="page" id="page7">
+  <h1>Choose your luck 🙂</h1>
+  <button onclick="startGame()">Play ▶</button>
+
+  <div id="gameArea" class="hidden">
+    <p>Choose any 3</p>
+    <div class="envelope-grid">
+      <div class="envelope" onclick="pick(this,0)">🧧</div>
+      <div class="envelope" onclick="pick(this,1)">🧧</div>
+      <div class="envelope" onclick="pick(this,2)">🧧</div>
+      <div class="envelope" onclick="pick(this,3)">🧧</div>
+      <div class="envelope" onclick="pick(this,4)">🧧</div>
+      <div class="envelope" onclick="pick(this,5)">🧧</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div class="page" id="page8">
+  <h1>Congratulations 🎉</h1>
+  <p id="totalMoney"></p>
+</div>
+
+</div>
+
+<!-- YES SLIDE -->
+<div class="slide" id="yesSlide">
+  <h1>yesss i knew it... 💖</h1>
+  <p>Love you soo much 😘...</p>
+  <button onclick="closeSlide();nextPage(3);">Continue 💕</button>
+</div>
+
+<!-- NO SLIDE -->
+<div class="slide" id="noSlide">
+  <h1>Think again other wise I kikl you 😼.....</h1>
+  <img src="https://i.ibb.co/CKVwMxsJ/80f9a2d0f8a5fd2cf8c2fa553ded2efa.jpg" class="love-img">
+  <button onclick="closeSlide()">Back 🔙</button>
+</div>
+
+<!-- NEW YEAR BIG SLIDE -->
+<div class="big-slide" id="newYearSlide">
+  <h1>Happy New Year.... 🎊</h1>
+  <p>hope you enjoy with your family 😊</p>
+</div>
+
+<script>
+let count=0;
+let total=0;
+let values=[0,0,50000,100000,200000,300000];
+
+function nextPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+}
+
+function yesLove(){document.getElementById("yesSlide").classList.add("show");}
+function noLove(){document.getElementById("noSlide").classList.add("show");}
+function closeSlide(){
+  document.getElementById("yesSlide").classList.remove("show");
+  document.getElementById("noSlide").classList.remove("show");
+}
+
+function startGame(){
+  document.getElementById("gameArea").classList.remove("hidden");
+}
+
+function pick(el,index){
+  if(count>=3 || el.classList.contains("opened")) return;
+
+  let money=values[index];
+  el.innerHTML=money.toLocaleString()+" ₫";
+  el.classList.add("opened");
+
+  total+=money;
+  count++;
+
+  if(count===3){
+    setTimeout(()=>{
+      document.getElementById("totalMoney").innerText=
+      "You earned: "+total.toLocaleString()+" ₫ 💰";
+      nextPage(8);
+
+      setTimeout(()=>{
+        document.getElementById("newYearSlide").classList.add("show");
+      },2000);
+
+    },800);
+  }
+}
+</script>
+
+</body>
+</html>
